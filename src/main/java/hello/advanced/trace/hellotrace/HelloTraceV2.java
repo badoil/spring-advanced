@@ -21,7 +21,6 @@ public class HelloTraceV2 {
 
     public TraceStatus beginSync(TraceId beforTraceId, String message) {
         TraceId nextTraceId = beforTraceId.createNextId();
-        log.debug("level: {}", nextTraceId.getLevel());
         Long startTimeMs = System.currentTimeMillis();
         log.info("[{}] {}{}", nextTraceId.getId(), addSpace(START_PREFIX, nextTraceId.getLevel()), message);
         return new TraceStatus(nextTraceId, startTimeMs, message);
@@ -46,7 +45,9 @@ public class HelloTraceV2 {
             log.info("[{}] {}{} time={}ms ex={}", traceId.getId(),
                     addSpace(EX_PREFIX, traceId.getLevel()), status.getMessage(), resultTimeMs,
                     e.toString());
-        } }
+        }
+    }
+
     private static String addSpace(String prefix, int level) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < level; i++) {
