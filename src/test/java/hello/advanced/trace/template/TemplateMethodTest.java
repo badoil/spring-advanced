@@ -58,7 +58,7 @@ public class TemplateMethodTest {
         AbstractTemplate template1 = new AbstractTemplate() {
             @Override
             protected void call() {
-                log.info("비즈니스 로직1");
+                log.info("비즈니스 로직1 ");
             }
         };
         template1.execute();
