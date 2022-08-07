@@ -33,4 +33,7 @@ public class OrderControllerV4 {
         };
         return template.execute("OrderController.request()");
     }
+    // 부모 클래스의 기능을 사용하든 사용하지 않든 간에 부모 클래스를 강하게 의존
+    //잘못된 의존관계 때문에 부모 클래스를 수정하면, 자식 클래스에도 영향을 줄 수 있음
+    //추가로 템플릿 메서드 패턴은 상속 구조를 사용하기 때문에, 별도의 클래스나 익명 내부 클래스를 만들어야 하는 부분도 복잡
 }
